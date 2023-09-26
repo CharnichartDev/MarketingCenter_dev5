@@ -24,15 +24,12 @@ jobs:
 
       - name: working folder
         run: ls -lrt -d -1 "$PWD"/{*,.*} 
-     
-      - name: more path
-        run: echo "${PATH//:/$'\n'}"
-
+   
       - name: cd to source
-        run: cd  ~/work/MarketingCenter_dev5/MarketingCenter_dev5/MarketingCenter_dev5/MarketingCenter_dev5
+        run: cd  /work/MarketingCenter_dev5/MarketingCenter_dev5/MarketingCenter_dev5
 
       - name: lista
-        run: ls -lrt -d -1 "$PWD"/{*,.*} 
+        run: ls
 
    #   - name: Build with dotnet
     #    run: dotnet build --configuration Release
