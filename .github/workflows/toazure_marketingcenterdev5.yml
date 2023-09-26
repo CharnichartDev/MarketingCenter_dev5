@@ -25,6 +25,9 @@ jobs:
       - name: Build with dotnet
         run: dotnet build --configuration Release
 
+      - name: working folder
+        run: echo "${PATH//:/$'\n'}"
+
       - name: dotnet publish
         run: dotnet publish MarketingCenter_dev5/MarketingCenter_dev5.csproj -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
