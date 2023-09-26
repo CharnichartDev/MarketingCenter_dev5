@@ -26,7 +26,7 @@ jobs:
         run: ls -lrt -d -1 "$PWD"/{*,.*} 
    
       - name: cd to source
-        run: cd  /work/MarketingCenter_dev5/MarketingCenter_dev5
+        run: cd  ~/work/MarketingCenter_dev5/MarketingCenter_dev5
 
       - name: lista
         run: ls
