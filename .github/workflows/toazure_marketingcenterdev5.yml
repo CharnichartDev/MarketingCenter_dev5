@@ -23,7 +23,7 @@ jobs:
           include-prerelease: true
 
       - name: Moving to the correct folder
-        run: cd MarketingCenter_dev5
+        run: cd ~/MarketingCenter_dev5/MarketingCenter_dev5/MarketingCenter_dev5.csproj
 
       - name: Build with dotnet
         run: dotnet build --configuration Release
