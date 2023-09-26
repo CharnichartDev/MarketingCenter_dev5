@@ -1,0 +1,8 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/MarketingCenter_dev5/MarketingCenter_dev5/bin/Debug/net6.0
+/MarketingCenter_dev5/MarketingCenter_dev5/obj/Debug/net6.0
+/MarketingCenter_dev5/MarketingCenterData/bin/Debug/net6.0
+/MarketingCenter_dev5/.vs/MarketingCenter_dev5/FileContentIndex
