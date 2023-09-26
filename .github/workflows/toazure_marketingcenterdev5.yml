@@ -22,12 +22,13 @@ jobs:
           dotnet-version: '6.0.x'
           include-prerelease: true
 
+      - name: Moving to the correct folder
+        run: cd MarketingCenter_dev5
+
       - name: Build with dotnet
         run: dotnet build --configuration Release
 
       - name: dotnet publish
-        #moving to the correct folder
-        run: cd MarketingCenter_dev5
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
       - name: Upload artifact for deployment job
