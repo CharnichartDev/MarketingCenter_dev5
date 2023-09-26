@@ -26,6 +26,7 @@ jobs:
         run: dotnet build --configuration Release
 
       - name: dotnet publish
+        #moving to the correct folder
         run: cd MarketingCenter_dev5
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
