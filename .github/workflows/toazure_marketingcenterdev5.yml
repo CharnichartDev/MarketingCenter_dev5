@@ -22,9 +22,6 @@ jobs:
           dotnet-version: '6.0.x'
           include-prerelease: true
 
-      - name: Moving to the correct folder
-        run: cd ~/MarketingCenter_dev5/MarketingCenter_dev5/MarketingCenter_dev5.csproj
-
       - name: Build with dotnet
         run: dotnet build --configuration Release
 
