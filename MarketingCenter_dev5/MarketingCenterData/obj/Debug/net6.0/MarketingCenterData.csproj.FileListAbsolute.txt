@@ -1,0 +1,14 @@
+G:\source\repos\ARKUS-NEXUS\challenge\MarketingCenter\MarketingCenter_dev5\MarketingCenterData\bin\Debug\net6.0\MarketingCenterData.deps.json
+G:\source\repos\ARKUS-NEXUS\challenge\MarketingCenter\MarketingCenter_dev5\MarketingCenterData\bin\Debug\net6.0\MarketingCenterData.runtimeconfig.json
+G:\source\repos\ARKUS-NEXUS\challenge\MarketingCenter\MarketingCenter_dev5\MarketingCenterData\bin\Debug\net6.0\MarketingCenterData.dll
+G:\source\repos\ARKUS-NEXUS\challenge\MarketingCenter\MarketingCenter_dev5\MarketingCenterData\bin\Debug\net6.0\MarketingCenterData.pdb
+G:\source\repos\ARKUS-NEXUS\challenge\MarketingCenter\MarketingCenter_dev5\MarketingCenterData\obj\Debug\net6.0\MarketingCenterData.csproj.AssemblyReference.cache
+G:\source\repos\ARKUS-NEXUS\challenge\MarketingCenter\MarketingCenter_dev5\MarketingCenterData\obj\Debug\net6.0\MarketingCenterData.GeneratedMSBuildEditorConfig.editorconfig
+G:\source\repos\ARKUS-NEXUS\challenge\MarketingCenter\MarketingCenter_dev5\MarketingCenterData\obj\Debug\net6.0\MarketingCenterData.AssemblyInfoInputs.cache
+G:\source\repos\ARKUS-NEXUS\challenge\MarketingCenter\MarketingCenter_dev5\MarketingCenterData\obj\Debug\net6.0\MarketingCenterData.AssemblyInfo.cs
+G:\source\repos\ARKUS-NEXUS\challenge\MarketingCenter\MarketingCenter_dev5\MarketingCenterData\obj\Debug\net6.0\MarketingCenterData.csproj.CoreCompileInputs.cache
+G:\source\repos\ARKUS-NEXUS\challenge\MarketingCenter\MarketingCenter_dev5\MarketingCenterData\obj\Debug\net6.0\MarketingCenterData.dll
+G:\source\repos\ARKUS-NEXUS\challenge\MarketingCenter\MarketingCenter_dev5\MarketingCenterData\obj\Debug\net6.0\refint\MarketingCenterData.dll
+G:\source\repos\ARKUS-NEXUS\challenge\MarketingCenter\MarketingCenter_dev5\MarketingCenterData\obj\Debug\net6.0\MarketingCenterData.pdb
+G:\source\repos\ARKUS-NEXUS\challenge\MarketingCenter\MarketingCenter_dev5\MarketingCenterData\obj\Debug\net6.0\MarketingCenterData.genruntimeconfig.cache
+G:\source\repos\ARKUS-NEXUS\challenge\MarketingCenter\MarketingCenter_dev5\MarketingCenterData\obj\Debug\net6.0\ref\MarketingCenterData.dll
