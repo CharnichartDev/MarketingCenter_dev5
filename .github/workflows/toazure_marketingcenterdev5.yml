@@ -22,8 +22,13 @@ jobs:
           dotnet-version: '6.0.x'
           include-prerelease: true
 
-      - name: Build with dotnet
-        run: dotnet build --configuration Release
+      - name: Print Current Working Directory
+        run: |
+          pwd
+          ls -al  # List the contents of the current directory
+
+#      - name: Build with dotnet
+#        run: dotnet build --configuration Release
 
 #	  - name: dotnet publish
 #		run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
