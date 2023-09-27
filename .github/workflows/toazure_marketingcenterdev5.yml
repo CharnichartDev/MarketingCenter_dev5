@@ -27,6 +27,12 @@ jobs:
           pwd
           ls -al  # List the contents of the current directory
 
+      - name: Accessing Solution Folder and listing
+        run: |
+          pwd
+          cd MarketingCenter_dev5
+          ls -al  # List the contents of the current directory
+
 #      - name: Build with dotnet
 #        run: dotnet build --configuration Release
 
