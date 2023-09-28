@@ -2,34 +2,55 @@
 
 namespace MarketingCenterData.DataBaseContext
 {
-    public class MCDBContext : DbContext
+    public class McdbContext : DbContext
     {
 
-        public MCDBContext(DbContextOptions<MCDBContext> options)
+        public McdbContext(DbContextOptions<McdbContext> options)
             : base(options)
+        {
+            Database.EnsureCreated();
+        }
+
+        public McdbContext()
         {
         }
 
-        public DbSet<TableA> TableAs { get; set; }
+        public DbSet<Category>? Categories { get; set; }
 
-        public DbSet<TableB> TableBs { get; set; }
+        public DbSet<Subcategory>? Subcategories { get; set; }
+
+        public DbSet<InteriorSubCategory>? InteriorSubCategories { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
-            modelBuilder.Entity<TableA>(
+            modelBuilder.Entity<Category>(
                 dbo =>
                 {
-                    dbo.ToTable("TableA");
+                    dbo.ToTable("Category");
                 });
 
-            modelBuilder.Entity<TableB>(
+            modelBuilder.Entity<Subcategory>(
                 dbo =>
                 {
-                    dbo.ToTable("TableB");
+                    dbo.ToTable("Subcategory");
+                    dbo.HasKey(s => s.SubcategoryId);
+                    dbo.HasOne(s => s.Category)
+                        .WithMany()
+                        .HasForeignKey(s => s.CategoryId);
+
                 });
 
 
+            modelBuilder.Entity<InteriorSubCategory>(
+                dbo =>
+                {
+                    dbo.ToTable("InteriorSubCategory");
+
+                    dbo.HasOne(s => s.Subcategory)
+                        .WithMany()
+                        .HasForeignKey(s => s.SubcategoryId);
+                });
         }
 
 

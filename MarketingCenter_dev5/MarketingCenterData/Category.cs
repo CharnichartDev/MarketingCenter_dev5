@@ -12,7 +12,8 @@ namespace MarketingCenterData
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ID { get; set; }
+        public int CategoryId { get; set; }
         public string CategoryName { get; set; }
+        public bool OnDisplay { get; set; }
     }
 }

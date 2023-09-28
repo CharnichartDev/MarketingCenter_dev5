@@ -1,5 +1,7 @@
-using MarketingCenterData.DataBaseContext;
+using MarketingCenterData;
 using Microsoft.EntityFrameworkCore;
+using MarketingCenterData.DataBaseContext;
+using Serilog;
 
 
 namespace MarketingCenter_dev5
@@ -10,31 +12,41 @@ namespace MarketingCenter_dev5
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
-
             builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-            builder.Services.AddDbContext<MCDBContext>(options =>
+
+            builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+
+            builder.Services.AddDbContext<McdbContext>(options =>
             {
-                options.UseSqlServer(builder.Configuration.GetConnectionString("MCDBContext"));
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
             });
 
             var app = builder.Build();
 
-            //using (var scope = app.Services.CreateScope())
-            //{
-            //    var context = scope.ServiceProvider.GetRequiredService<MCDBContext>();
-            //    context.Database.Migrate();
-            //}
+            Log.Logger = new LoggerConfiguration()
+                .ReadFrom.Configuration(app.Configuration)
+                .CreateLogger();
+
+            Log.Information("Starting up");
+
+            using (var scope = app.Services.CreateScope())
+            {
+                var context = scope.ServiceProvider.GetRequiredService<McdbContext>();
+                    context.Database.SetCommandTimeout(6000000);
+                    context.Database.Migrate();
+                    SeedData(context);
+            }
+
+            
 
             // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
-            {
-                app.UseSwagger();
-                app.UseSwaggerUI();
-            }
+            // if (app.Environment.IsDevelopment())
+            // {
+            app.UseSwagger();
+            app.UseSwaggerUI();
+            //  }
 
             app.UseHttpsRedirection();
 
@@ -44,6 +56,23 @@ namespace MarketingCenter_dev5
             app.MapControllers();
 
             app.Run();
+
+            Log.Information("End App Configuration");
         }
+
+
+        static void SeedData(McdbContext context)
+        {
+            if (!context.Categories.Any())
+            {
+                context.Categories.Add(new Category { CategoryName = "Marketing" });
+                context.Categories.Add(new Category { CategoryName = "Products" });
+                context.Categories.Add(new Category { CategoryName = "Interiors" });
+                context.SaveChanges();
+            }
+        }
+
+
+
     }
 }

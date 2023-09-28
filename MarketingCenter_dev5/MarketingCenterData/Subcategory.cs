@@ -13,20 +13,24 @@ namespace MarketingCenterData
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ID { get; set; }
+        public int SubcategoryId { get; set; }
         public string Name { get; set; }
-        public string cat_landing_description { get; set; }
-        public string headline { get; set; }
+        public string CatLandingDescription { get; set; }
+        public string Headline { get; set; }
             
-        public string cat_landing_description_markup { get; set; }
-        public string description_markup { get; set; }
-        public bool external_url_active { get; set; }
-        public string pretty_url { get; set; }
-        public string external_url { get; set; }
-        public byte[] file_orig { get; set; }
+        public string CatLandingDescriptionMarkup { get; set; }
+        public string DescriptionMarkup { get; set; }
+        public bool ExternalUrlActive { get; set; }
+        public string PrettyUrl { get; set; }
+        public string ExternalUrl { get; set; }
+        public byte[] FileOrig { get; set; }
         public bool Static { get; set; }
+        public bool OnDisplay { get; set; }
 
-        [ForeignKey("CategoryID")]
+
+        public int CategoryId { get; set; }
+
+        [ForeignKey("CategoryId")]
         public virtual Category Category { get; set; }
 
     }
