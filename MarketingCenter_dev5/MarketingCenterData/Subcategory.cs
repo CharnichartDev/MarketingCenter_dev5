@@ -27,7 +27,6 @@ namespace MarketingCenterData
         public bool Static { get; set; }
         public bool OnDisplay { get; set; }
 
-
         public int CategoryId { get; set; }
 
         [ForeignKey("CategoryId")]

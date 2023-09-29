@@ -21,6 +21,9 @@ namespace MarketingCenterData.DataBaseContext
 
         public DbSet<InteriorSubCategory>? InteriorSubCategories { get; set; }
 
+        public DbSet<ContentPublish>? ContentPublishes { get; set; }
+
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
@@ -46,13 +49,19 @@ namespace MarketingCenterData.DataBaseContext
                 dbo =>
                 {
                     dbo.ToTable("InteriorSubCategory");
-
+                    dbo.HasKey(s => s.InteriorsubcategoryId);
                     dbo.HasOne(s => s.Subcategory)
                         .WithMany()
                         .HasForeignKey(s => s.SubcategoryId);
                 });
+
+            modelBuilder.Entity<ContentPublish>(
+                dbo =>
+                {
+                    dbo.ToTable("ContentPublish");
+                });
+
+
         }
-
-
     }
 }

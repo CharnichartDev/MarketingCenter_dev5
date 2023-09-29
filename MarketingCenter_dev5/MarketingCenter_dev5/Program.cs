@@ -23,6 +23,19 @@ namespace MarketingCenter_dev5
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
             });
 
+
+            builder.Services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(
+                    policy =>
+                    {
+                        policy.WithOrigins("*")
+                            .AllowAnyMethod()
+                            .AllowAnyHeader();
+                    });
+            });
+
+
             var app = builder.Build();
 
             Log.Logger = new LoggerConfiguration()
@@ -31,14 +44,18 @@ namespace MarketingCenter_dev5
 
             Log.Information("Starting up");
 
+
             using (var scope = app.Services.CreateScope())
             {
                 var context = scope.ServiceProvider.GetRequiredService<McdbContext>();
                     context.Database.SetCommandTimeout(6000000);
-                    context.Database.Migrate();
-                    SeedData(context);
-            }
 
+                    if (!context.Database.CanConnect())
+                    {
+                        context.Database.Migrate();
+                        SeedData(context);
+                    }
+            }
             
 
             // Configure the HTTP request pipeline.
@@ -51,6 +68,10 @@ namespace MarketingCenter_dev5
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
+
+            app.UseCors();
+
+            app.UseRouting();
 
 
             app.MapControllers();
