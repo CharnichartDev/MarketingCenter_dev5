@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="MarketingCenterdev5" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^G:\\source\\repos\\ARKUS-NEXUS\\challenge\\MarketingCenter\\MarketingCenter_dev5\\MarketingCenter_dev5\\obj\\Release\\net6\.0\\PubTmp\\Out\\$" />
+  </parameter>
+</parameters>

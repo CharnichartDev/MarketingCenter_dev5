@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\MarketingCenter_dev5.props" />
+</Project>
