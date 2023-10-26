@@ -8,29 +8,16 @@ using System.Threading.Tasks;
 
 namespace MarketingCenterData
 {
-    public class Subcategory
+    public class Subcategory : CategoryBase
     {
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int SubcategoryId { get; set; }
-        public string Name { get; set; }
-        public string CatLandingDescription { get; set; }
-        public string Headline { get; set; }
-            
-        public string CatLandingDescriptionMarkup { get; set; }
-        public string DescriptionMarkup { get; set; }
-        public bool ExternalUrlActive { get; set; }
-        public string PrettyUrl { get; set; }
-        public string ExternalUrl { get; set; }
-        public byte[] FileOrig { get; set; }
-        public bool Static { get; set; }
-        public bool OnDisplay { get; set; }
 
         public int CategoryId { get; set; }
 
         [ForeignKey("CategoryId")]
-        public virtual Category Category { get; set; }
-
+        public virtual Category? Category { get; set; }
     }
 }

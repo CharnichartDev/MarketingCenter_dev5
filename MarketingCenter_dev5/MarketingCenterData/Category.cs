@@ -8,12 +8,14 @@ using System.Threading.Tasks;
 
 namespace MarketingCenterData
 {
-    public class Category
+
+
+    public class Category 
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int CategoryId { get; set; }
-        public string CategoryName { get; set; }
+        public string? CategoryName { get; set; }
         public bool OnDisplay { get; set; }
     }
 }

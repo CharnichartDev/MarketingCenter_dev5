@@ -2900,11 +2900,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\source\\repos\\ARKUS-NEXUS\\challenge\\ReactProject\\MarketingCenter_dev5\\MarketingCenterData\\MarketingCenterData.csproj",
+      "projectUniqueName": "G:\\source\\repos\\ARKUS-NEXUS\\challenge\\MarketingCenter\\MarketingCenter_dev5\\MarketingCenterData\\MarketingCenterData.csproj",
       "projectName": "MarketingCenterData",
-      "projectPath": "G:\\source\\repos\\ARKUS-NEXUS\\challenge\\ReactProject\\MarketingCenter_dev5\\MarketingCenterData\\MarketingCenterData.csproj",
+      "projectPath": "G:\\source\\repos\\ARKUS-NEXUS\\challenge\\MarketingCenter\\MarketingCenter_dev5\\MarketingCenterData\\MarketingCenterData.csproj",
       "packagesPath": "C:\\Users\\charn\\.nuget\\packages\\",
-      "outputPath": "G:\\source\\repos\\ARKUS-NEXUS\\challenge\\ReactProject\\MarketingCenter_dev5\\MarketingCenterData\\obj\\",
+      "outputPath": "G:\\source\\repos\\ARKUS-NEXUS\\challenge\\MarketingCenter\\MarketingCenter_dev5\\MarketingCenterData\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -2979,7 +2979,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -8,19 +8,17 @@ namespace MarketingCenterData.DataBaseContext
         public McdbContext(DbContextOptions<McdbContext> options)
             : base(options)
         {
-            Database.EnsureCreated();
+           Database.EnsureCreated();
         }
 
         public McdbContext()
         {
+
         }
 
         public DbSet<Category>? Categories { get; set; }
-
         public DbSet<Subcategory>? Subcategories { get; set; }
-
         public DbSet<InteriorSubCategory>? InteriorSubCategories { get; set; }
-
         public DbSet<ContentPublish>? ContentPublishes { get; set; }
 
 
@@ -49,7 +47,7 @@ namespace MarketingCenterData.DataBaseContext
                 dbo =>
                 {
                     dbo.ToTable("InteriorSubCategory");
-                    dbo.HasKey(s => s.InteriorsubcategoryId);
+                    dbo.HasKey(s => s.InteriorSubCategoryId);
                     dbo.HasOne(s => s.Subcategory)
                         .WithMany()
                         .HasForeignKey(s => s.SubcategoryId);

@@ -2,6 +2,7 @@ using MarketingCenterData;
 using Microsoft.EntityFrameworkCore;
 using MarketingCenterData.DataBaseContext;
 using Serilog;
+using MarketingCenter_dev5.DTI;
 
 
 namespace MarketingCenter_dev5
@@ -15,14 +16,12 @@ namespace MarketingCenter_dev5
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-
             builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
 
             builder.Services.AddDbContext<McdbContext>(options =>
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
             });
-
 
             builder.Services.AddCors(options =>
             {
@@ -34,6 +33,14 @@ namespace MarketingCenter_dev5
                             .AllowAnyHeader();
                     });
             });
+
+
+            builder.Services.AddScoped<CategoryDti>();
+            builder.Services.AddScoped<SubcategoryDti>();
+            builder.Services.AddScoped<InteriorSubCategoryDti>();
+            builder.Services.AddScoped<ContentPublish>();
+
+
 
 
             var app = builder.Build();
@@ -48,15 +55,14 @@ namespace MarketingCenter_dev5
             using (var scope = app.Services.CreateScope())
             {
                 var context = scope.ServiceProvider.GetRequiredService<McdbContext>();
-                    context.Database.SetCommandTimeout(6000000);
+                context.Database.SetCommandTimeout(6000000);
 
-                    if (!context.Database.CanConnect())
-                    {
-                        context.Database.Migrate();
-                        SeedData(context);
-                    }
+                if (!context.Database.CanConnect())
+                {
+                    context.Database.Migrate();
+                }
             }
-            
+
 
             // Configure the HTTP request pipeline.
             // if (app.Environment.IsDevelopment())
@@ -82,16 +88,7 @@ namespace MarketingCenter_dev5
         }
 
 
-        static void SeedData(McdbContext context)
-        {
-            if (!context.Categories.Any())
-            {
-                context.Categories.Add(new Category { CategoryName = "Marketing" });
-                context.Categories.Add(new Category { CategoryName = "Products" });
-                context.Categories.Add(new Category { CategoryName = "Interiors" });
-                context.SaveChanges();
-            }
-        }
+
 
 
 

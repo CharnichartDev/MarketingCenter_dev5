@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NHozZ8+iuNQ4/MxGHYNFdllA4UgQY4DYUYUXqEL1DnGJ+JCQmtrUwCDjsh5v37vZqWLT3uqdGwDMchJSwvORvg==",
+  "dgSpecHash": "dPMV22akbylkhx0iM6dGPsst5/JHOtanXUts6zb4lZaRrb6nsTGvubG5t6Mkk0EoSPIbix8u3DB1Lyv3Sxl9qQ==",
   "success": true,
-  "projectFilePath": "G:\\source\\repos\\ARKUS-NEXUS\\challenge\\ReactProject\\MarketingCenter_dev5\\MarketingCenterData\\MarketingCenterData.csproj",
+  "projectFilePath": "G:\\source\\repos\\ARKUS-NEXUS\\challenge\\MarketingCenter\\MarketingCenter_dev5\\MarketingCenterData\\MarketingCenterData.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\charn\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\charn\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

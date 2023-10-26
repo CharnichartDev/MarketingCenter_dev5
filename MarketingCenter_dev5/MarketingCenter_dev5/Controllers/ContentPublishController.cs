@@ -1,60 +1,49 @@
 ﻿using MarketingCenterData;
 using MarketingCenterData.DataBaseContext;
 using Microsoft.AspNetCore.Mvc;
+using MarketingCenter_dev5.DTI;
+
 
 namespace MarketingCenter_dev5.Controllers
 {
     public class ContentPublishController : Controller
     {
-        private readonly ILogger<ManageCategoriesController> _logger;
-        private readonly McdbContext _context;
+        private readonly IContentPublishDTI _contentPublish;
 
-        public ContentPublishController(ILogger<ManageCategoriesController> logger, McdbContext context)
+        public ContentPublishController(ContentPublishDti contentPublish )
         {
-            _logger = logger;
-            _context = context;
+            _contentPublish = contentPublish;
         }
 
-        [HttpGet("getcontentpublish")]
-        public async Task<IActionResult> GetContentPublish() => Ok(_context.ContentPublishes);
+        [HttpGet("GetContentPublish")]
+        public async Task<IActionResult> GetContentPublish() =>  Ok(await _contentPublish.GetContentPublish());
 
-        [HttpGet("getcontentpublishbycategoryid/{categoryId:int}")]
+        [HttpGet("GetContentPublishByCategoryId/{categoryId:int}")]
         public async Task<IActionResult> GetContentPublishedByCategoryId(int categoryId) =>
-             Ok(_context.ContentPublishes!.Where(c => c.CategoryIdw == categoryId));
+             Ok(await _contentPublish.GetContentPublishByCategoryId(categoryId));
 
-        [HttpGet("getcontentpublishbysubcategoryid/{subcategoryId:int}")]
+        [HttpGet("GetContentPublishBySubCategoryId/{subcategoryId:int}")]
         public async Task<IActionResult> GetContentpublishbysubcategoryid(int subcategoryId) => 
-            Ok(_context.ContentPublishes!.Where(c => c.SubcategoryIdw == subcategoryId));
+            Ok(await _contentPublish.GetContentPublishBySubCategoryId(subcategoryId));
 
-        [HttpGet("getcontentpublishbyinteriorsubcategoryid/{interiorsubcategoryId:int}")]
+        [HttpGet("GetContentPublishByInteriorSubCategoryId/{interiorsubcategoryId:int}")]
         public async Task<IActionResult> GetContentpublishbyinteriorsubcategoryid(int interiorsubcategoryId) => 
-            Ok(_context.ContentPublishes!.Where(c => c.InteriorSubcategoryIdw == interiorsubcategoryId));
+            Ok( await _contentPublish.GetContentPublishByInteriorSubCategoryId(interiorsubcategoryId));
 
-
-        [HttpPost("postcontentpublish")]
-        public async Task<IActionResult> PostContentPublish([FromBody] ContentPublish contentPublish)
+        [HttpPost("PostContentPublish")]
+        public async Task<IActionResult> PostContentPublish([FromBody] ContentPublishDTO contentPublish)
         {
-            if (ModelState.IsValid)
-            {
-                _context.ContentPublishes!.Add(contentPublish);
-                await _context.SaveChangesAsync();
-                return Ok(contentPublish);
-            }
-            return BadRequest(ModelState);
-        }
+            var returnMessage = string.Empty;
 
-        [HttpPut("putcontentpublish")]
-        public async Task<IActionResult> PutContentPublish([FromBody] ContentPublish contentPublish)
-        {
             if (ModelState.IsValid)
-            {
-                _context.ContentPublishes!.Update(contentPublish);
-                await _context.SaveChangesAsync();
-                return Ok(contentPublish);
-            }
-            return BadRequest(ModelState);
-        }
+                returnMessage = await _contentPublish.SaveContentPublish(contentPublish);
 
+            if (returnMessage.Contains("Success"))
+                return Ok(returnMessage);
+            else
+                return BadRequest(returnMessage);
+            
+        }
 
         [HttpGet("getmediatypes")]
         public IActionResult GetMediaTypes()
